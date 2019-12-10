@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
 import { context } from '@actions/github'
-const io = require('@actions/io')
+//const io = require('@actions/io')
 import { GitHub } from '@actions/github'
 import octokit from './octokit'
 

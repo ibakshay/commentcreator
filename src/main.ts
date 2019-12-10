@@ -1,19 +1,25 @@
 import * as core from '@actions/core'
-import {wait} from './wait'
+import { context } from '@actions/github'
+const io = require('@actions/io')
+import { GitHub } from '@actions/github'
+import octokit from './octokit'
 
-async function run(): Promise<void> {
+
+
+
+async function run() {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`)
+    const message = core.getInput('message')
+    await octokit.issues.createComment({
+      owner: context.repo.owner,
+      repo: context.repo.repo,
+      issue_number: context.issue.number,
+      body: message
+    })
 
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
   } catch (error) {
     core.setFailed(error.message)
   }
-}
 
+}
 run()

@@ -9,6 +9,7 @@ import octokit from './octokit'
 
 async function run() {
   try {
+    console.log("action  started 123")
     const message = core.getInput('message')
     await octokit.issues.createComment({
       owner: context.repo.owner,

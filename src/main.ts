@@ -5,7 +5,7 @@ import octokit from './octokit'
 
 import {CommittersDetails} from './interface'
 import getCommitters from './graphql'
-import prComment from './pullRequestComment'
+import prComment from './prcomment'
 
 async function run() {
   try {

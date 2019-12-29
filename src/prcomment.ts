@@ -23,11 +23,12 @@ async function getComment() {
 }
 
 function commentContent(committers: CommittersDetails[]) {
+  const dynmanicContent = core.getInput('content')
   let contributorsCount = 1
   contributorsCount = committers.length
   let is = contributorsCount > 1 ? 'are' : 'is'
   let contributor = contributorsCount > 1 ? 'contributors' : 'contributor'
-  let content = `**Greet Contributors Bot** <br/>  Thank you for taking your time and effort for your contribution, we truly value it. :tada: <br/> <br/> `
+  let content = `**Greet Contributors Bot** <br/>  ${dynmanicContent} <br/> <br/> `
   let content2 = `There  ${is}  **${contributorsCount}** ${contributor} in this pull request`
   content += content2
   committers.forEach(committer => {

@@ -2,9 +2,9 @@ name: 'Your name here'
 description: 'Provide a description here'
 author: 'Your name or organization here'
 inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+  content:              # change this
+    description: 'content of the Pull Request comment '
+    default: 'Thank you for taking your time and effort for your contribution, we truly value it. :tada:'
 runs:
   using: 'node12'
   main: 'lib/main.js'

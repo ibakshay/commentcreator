@@ -27,7 +27,7 @@ function commentContent(committers: CommittersDetails[]) {
   contributorsCount = committers.length
   let is = contributorsCount > 1 ? 'are' : 'is'
   let contributor = contributorsCount > 1 ? 'contributors' : 'contributor'
-  let content = `**Greet Contributors Bot** <br/>Thank you for your contribution and  we truly value it. <br/> <br/>`
+  let content = `**Greet Contributors Bot** <br/>Thank you for your contribution  and  we truly value it.:tada: <br/> <br/>`
   let content2 = ` There ${is} **${contributorsCount}** ${contributor} in this pull request `
   content += content2
 
@@ -39,11 +39,17 @@ function commentContent(committers: CommittersDetails[]) {
 export default async function prComment(committers: CommittersDetails[]) {
   const prComment = await getComment()
   if (!prComment) {
-    await octokit.issues.createComment({
+    return octokit.issues.createComment({
       owner: context.repo.owner,
       repo: context.repo.repo,
       issue_number: context.issue.number,
       body: commentContent(committers)
     })
   }
+  return octokit.issues.updateComment({
+    owner: context.repo.owner,
+    repo: context.repo.repo,
+    comment_id: prComment.id,
+    body: commentContent(committers)
+  })
 }

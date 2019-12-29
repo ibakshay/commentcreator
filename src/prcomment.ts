@@ -35,11 +35,11 @@ function commentContent(committers: CommittersDetails[]) {
     })
     return content
   }
-  let content2 = `The amazing **${contributorsCount}** ${contributor} in this pull request ${is} `
+  let content2 = `The **${contributorsCount}** amazing ${contributor} in this pull request ${is} `
+  content += content2
   committers.forEach(committer => {
     content += `<br/>:point_right: @${committer.name}`
   })
-  content += content2
   return content
 }
 

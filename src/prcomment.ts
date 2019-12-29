@@ -28,7 +28,8 @@ function commentContent(committers: CommittersDetails[]) {
   let is = contributorsCount > 1 ? 'are' : 'is'
   let contributor = contributorsCount > 1 ? 'contributors' : 'contributor'
   let text = `**Greet Contributors Bot** <br/>Thank you for your contribution and  we truly value it.`
-  let text2 = `There ${is} ${contributorsCount} ${contributor} in this pull request `
+  let text2 = ` There ${is} ${contributorsCount} ${contributor} in this pull request `
+  text.concat(text2)
   return text
 }
 export default async function prComment(committers: CommittersDetails[]) {

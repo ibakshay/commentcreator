@@ -9,7 +9,8 @@ import getCommitters from './graphql'
 async function run() {
   try {
     const committers = (await getCommitters()) as CommittersDetails[]
-    console.log(committers)
+    
+    console.log(committers, null, 2)
   } catch (error) {
     core.setFailed(error.message)
   }

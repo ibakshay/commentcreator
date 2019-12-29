@@ -31,7 +31,7 @@ function commentContent(committers: CommittersDetails[]) {
   let content = `**Greet Contributors Bot** <br/>  ${dynmanicContent} <br/> <br/> `
   if (contributorsCount == 1) {
     committers.forEach(committer => {
-      content += `The amazing ${contributor} in this pull request is ${committer.name}`
+      content += `The amazing ${contributor} in this pull request is @${committer.name}`
     })
     return content
   }

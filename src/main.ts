@@ -1,25 +1,17 @@
 import * as core from '@actions/core'
-import { context } from '@actions/github'
-const io = require('@actions/io')
-import { GitHub } from '@actions/github'
+import {context} from '@actions/github'
+import {GitHub} from '@actions/github'
 import octokit from './octokit'
 
-
-
+import {CommittersDetails} from './interface'
+import getCommitters from './graphql'
 
 async function run() {
   try {
-    const message = core.getInput('message')
-    await octokit.issues.createComment({
-      owner: context.repo.owner,
-      repo: context.repo.repo,
-      issue_number: context.issue.number,
-      body: message
-    })
-
+    const committers = (await getCommitters()) as CommittersDetails[]
+    console.log(committers)
   } catch (error) {
     core.setFailed(error.message)
   }
-
 }
 run()

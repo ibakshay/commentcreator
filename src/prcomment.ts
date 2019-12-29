@@ -27,12 +27,11 @@ function commentContent(committers: CommittersDetails[]) {
   contributorsCount = committers.length
   let is = contributorsCount > 1 ? 'are' : 'is'
   let contributor = contributorsCount > 1 ? 'contributors' : 'contributor'
-  let content = `**Greet Contributors Bot** <br/> There  ${is}  **${contributorsCount}** ${contributor} in this pull request `
+  let content = `**Greet Contributors Bot** <br/>  Thank you for taking your time and effort for your contribution, we truly value it. :tada: <br/> <br/> `
   committers.forEach(committer => {
     content += `<br/>:point_right: @${committer.name}`
   })
-  content += '<br/><br/>'
-  let content2 = `Thank you for taking your time and effort for your contribution, we truly value it. :tada: <br/> <br/>`
+  let content2 = `There  ${is}  **${contributorsCount}** ${contributor} in this pull request`
   content += content2
 
   return content

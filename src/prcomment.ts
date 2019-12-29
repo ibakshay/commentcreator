@@ -29,14 +29,20 @@ function commentContent(committers: CommittersDetails[]) {
   let is = contributorsCount > 1 ? 'are' : 'is'
   let contributor = contributorsCount > 1 ? 'contributors' : 'contributor'
   let content = `**Greet Contributors Bot** <br/>  ${dynmanicContent} <br/> <br/> `
-  let content2 = `There  ${is}  **${contributorsCount}** ${contributor} in this pull request`
-  content += content2
+  if (contributorsCount == 1) {
+    committers.forEach(committer => {
+      content += `The amazing ${contributor} in this pull request is ${committer.name}`
+    })
+    return content
+  }
+  let content2 = `The amazing **${contributorsCount}** ${contributor} in this pull request ${is} `
   committers.forEach(committer => {
     content += `<br/>:point_right: @${committer.name}`
   })
-
+  content += content2
   return content
 }
+
 export default async function prComment(committers: CommittersDetails[]) {
   const prComment = await getComment()
   if (!prComment) {

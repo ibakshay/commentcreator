@@ -27,10 +27,14 @@ function commentContent(committers: CommittersDetails[]) {
   contributorsCount = committers.length
   let is = contributorsCount > 1 ? 'are' : 'is'
   let contributor = contributorsCount > 1 ? 'contributors' : 'contributor'
-  let text1 = `**Greet Contributors Bot** <br/>Thank you for your contribution and  we truly value it. <br/> <br/>`
-  let text2 = ` There ${is} **${contributorsCount}** ${contributor} in this pull request `
-  text1 = text1 + text2
-  return text1
+  let content = `**Greet Contributors Bot** <br/>Thank you for your contribution and  we truly value it. <br/> <br/>`
+  let content2 = ` There ${is} **${contributorsCount}** ${contributor} in this pull request `
+  content += content2
+
+  committers.forEach(committer => {
+    content += `<br/>:tada: @${committer.name}`
+  })
+  return content
 }
 export default async function prComment(committers: CommittersDetails[]) {
   const prComment = await getComment()

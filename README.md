@@ -2,7 +2,7 @@
 
 > Github Action to greet all the wonderful contributors within a Pull Request. 
 
-As it is important to acknowledge and give credit to all the contributions from the awesome people who has dedicated their time and effort and So, this action will post a  Pull Request Comment greeting all the contributors like below. 
+As it is important to acknowledge and give credit to all the contributors  who has dedicated their time and effort and So, you can use this action to  post a  Pull Request Comment greeting all the contributors like below. 
 
 <br/>
 

@@ -60,7 +60,9 @@ jobs:
 ```
 
 ## Credits 
-[Anton](https://github.com/KharitonOff) [Michael](https://github.com/michael-spengler)
+[Anton](https://github.com/KharitonOff) 
+<br/>
+[Michael](https://github.com/michael-spengler)
 
 # License
 

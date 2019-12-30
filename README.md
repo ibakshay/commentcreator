@@ -12,7 +12,7 @@ As it is important to acknowledge and give credit to all the contributors  who h
 
 Create `.github/workflows/greet-contributors.yml` file and add the below workflow. That is all it is required to greet your contributors within the pull request. 
 
-##Basic 
+## Basic 
 
 ``` yml
 

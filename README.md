@@ -10,6 +10,8 @@ As it is important to acknowledge and give credit to all the contributions from 
 
 # Usage 
 
+Create .github/workflows/greet-contributors.yml
+
 ``` yml
 
 name: "GreetContributor"

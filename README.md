@@ -57,7 +57,11 @@ jobs:
       with: 
         content: "<Add your custom content here>"
        #default content is "Thank you for taking your time and effort for your contribution, we truly value it. :tada:" 
-        
- 
-
 ```
+
+## Credits 
+@KharitonOff @michael-spengler
+
+# License
+
+> MIT

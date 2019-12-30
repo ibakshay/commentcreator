@@ -71,14 +71,9 @@ export default async function getCommitters() {
         committers.push(user)
       }
     })
-    console.log('the committers of this pr are' + JSON.stringify(committers))
     filteredCommitters = committers.filter(committer => {
       return committer.id !== 41898282
     })
-    console.log(
-      'the committers last push of this pr are' +
-        JSON.stringify(filteredCommitters)
-    )
     return filteredCommitters
   } catch (e) {
     core.setFailed('graphql call to get the committers details failed:' + e)

@@ -11,8 +11,7 @@ async function run() {
   try {
     const committers = (await getCommitters()) as CommittersDetails[]
     await prComment(committers)
-
-    console.log(committers, null, 2)
+    
   } catch (error) {
     core.setFailed(error.message)
   }

@@ -10,14 +10,14 @@ As it is important to acknowledge and give credit to all the contributors  who h
 
 # Usage 
 
-Create .github/workflows/greet-contributors.yml
+Create .github/workflows/greet-contributors.yml file and add the below workflow. That is all it is required to greet your contributors within the pull request. 
 
 ``` yml
 
 name: "GreetContributor"
 on:
   pull_request:
-    types: [opened,closed,synchronize]
+    types: [opened,synchronize]
     
 jobs:
   GreetCommitter:

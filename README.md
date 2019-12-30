@@ -36,6 +36,8 @@ jobs:
 
 If you want to greet the contributors with the custom content rather than using the default, then you can provide any custom 
 content as an input. 
+> Specify custom content string with 'content' parameter like below workflow
+
 
 ``` yml
 

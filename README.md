@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: "Greet contributor"
-      uses: ibakshay/greet-contributors-action@v2
+      uses: ibakshay/greet-contributors-action@v3
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: "Greet contributor"
-      uses: ibakshay/greet-contributors-action@v2
+      uses: ibakshay/greet-contributors-action@v3
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with: 

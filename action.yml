@@ -1,6 +1,8 @@
 name: 'greet-contributors-action'
 description: 'Github Action to greet all the wonderful contributors within a Pull Request.'
 author: 'Akshay Iyyadurai Balasundaram'
+icon: 'award'
+color: 'green'
 inputs:
   content:            
     description: 'content of the Pull Request comment '

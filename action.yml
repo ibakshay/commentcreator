@@ -1,8 +1,8 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'greet-contributors-action'
+description: 'Github Action to greet all the wonderful contributors within a Pull Request.'
+author: 'Akshay Iyyadurai Balasundaram'
 inputs:
-  content:              # change this
+  content:            
     description: 'content of the Pull Request comment '
     default: 'Thank you for taking your time and effort for your contribution, we truly value it. :tada:'
 runs:

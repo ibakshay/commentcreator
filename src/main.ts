@@ -9,13 +9,7 @@ import octokit from './octokit'
 
 async function run() {
   try {
-    const message = core.getInput('message')
-    await octokit.issues.createComment({
-      owner: context.repo.owner,
-      repo: context.repo.repo,
-      issue_number: context.issue.number,
-      body: message
-    })
+core.setFailed("testing the commit from action functionality")
 
   } catch (error) {
     core.setFailed(error.message)

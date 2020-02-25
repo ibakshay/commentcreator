@@ -16,8 +16,8 @@ async function run() {
     const jwt = app.getSignedJsonWebToken();
     console.log(`The JSON web token is ${jwt}`)
     const { data } = await request("GET /repos/:owner/:repo/installation", {
-      owner: "hiimbex",
-      repo: "testing-things",
+      owner: "ibakshay",
+      repo: "merge-conflicts",
       headers: {
         authorization: `Bearer ${jwt}`,
         accept: "application/vnd.github.machine-man-preview+json"
@@ -29,7 +29,7 @@ async function run() {
     await prComment(committers)
 
   } catch (error) {
-    core.setFailed(error.message)
+    core.setFailed("error during fetching installation id" + error.message)
   }
 }
 run()

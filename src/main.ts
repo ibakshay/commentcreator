@@ -40,8 +40,8 @@ async function run() {
       body: "wohooooooooooooooooo it is working"
     })
 
-    const committers = (await getCommitters()) as CommittersDetails[]
-    await prComment(committers)
+    // const committers = (await getCommitters()) as CommittersDetails[]
+    //await prComment(committers)
 
   } catch (error) {
     core.setFailed("error during fetching installation id" + error.message)

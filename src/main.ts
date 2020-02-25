@@ -31,10 +31,10 @@ async function run() {
     });
     console.log(`Installation Access  token for ${context.issue.repo} repo and owner ${context.issue.owner} is ${installationAccessToken}`)
     const octokit = new GitHub(installationAccessToken as string)
-    await octokit.issues.createComment({
+    await octokit.issues.create({
       owner: context.repo.owner,
       repo: context.repo.repo,
-      issue_number: context.issue.number,
+      title: "first issue from octokit cla lite bot",
       body: "wohooooooooooooooooo it is working"
     })
 

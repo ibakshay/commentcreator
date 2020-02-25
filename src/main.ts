@@ -2,15 +2,18 @@ import * as core from '@actions/core'
 import { context } from '@actions/github'
 import { GitHub } from '@actions/github'
 import octokit from './octokit'
-
+import { App } from "@octokit/app"
 import { CommittersDetails } from './interface'
 import getCommitters from './graphql'
 import prComment from './prcomment'
 
 async function run() {
   try {
-    const privateKey = core.getInput('private_key')
-    console.log(`The private key is ${privateKey}`)
+    const PRIVATE_KEY = core.getInput('private_key')
+    const APP_ID = 55339
+    const app = new App({ id: APP_ID, privateKey: PRIVATE_KEY })
+    const jwt = app.getSignedJsonWebToken();
+    console.log(`The JSON web token is ${jwt}`)
     const committers = (await getCommitters()) as CommittersDetails[]
     await prComment(committers)
 

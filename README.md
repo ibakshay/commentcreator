@@ -1,5 +1,7 @@
 # greet-contributors-action
 
+POC for authenticating as a GitHub bot. 
+
 > Github Action to greet all the wonderful contributors within a Pull Request. 
 
 As it is important to acknowledge and give credit to all the contributors  who has dedicated their time and effort and So, you can use this action to  post a  Pull Request Comment greeting all the contributors like below. 

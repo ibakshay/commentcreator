@@ -16,15 +16,15 @@ async function run() {
     const jwt = app.getSignedJsonWebToken();
     console.log(`The JSON web token is ${jwt}`)
     const { data } = await request("GET /repos/:owner/:repo/installation", {
-      owner: "ibakshay",
-      repo: "merge-conflicts",
+      owner: context.issue.owner,
+      repo: context.issue.repo,
       headers: {
         authorization: `Bearer ${jwt}`,
         accept: "application/vnd.github.machine-man-preview+json"
       }
     });
     const installationId = data.id;
-    console.log(`Installation id is ${installationId}`)
+    console.log(`Installation id for ${context.issue.repo} ${context.issue.owner}is ${installationId}`)
     const committers = (await getCommitters()) as CommittersDetails[]
     await prComment(committers)
 

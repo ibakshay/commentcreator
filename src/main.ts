@@ -1,8 +1,8 @@
 import * as core from '@actions/core'
 import { context } from '@actions/github'
 import { GitHub } from '@actions/github'
-import { setInstallationAccessToken } from './octokit'
-import { octokit } from './octokit'
+import { setInstallationAccessToken } from './getInstallationToken'
+import { octokit, test } from './octokit'
 import { CommittersDetails } from './interface'
 import getCommitters from './graphql'
 import prComment from './prcomment'
@@ -13,6 +13,7 @@ async function run() {
     installationAccessToken = await setInstallationAccessToken()
 
     console.log(`InstallationAccessToken in main is ${installationAccessToken}`)
+    test()
     // const PRIVATE_KEY = core.getInput('private_key')
     // const APP_ID = 55339
     // const app = new App({ id: APP_ID, privateKey: PRIVATE_KEY })

@@ -10,6 +10,7 @@ const { request } = require("@octokit/request");
 
 async function run() {
   try {
+
     const PRIVATE_KEY = core.getInput('private_key')
     const APP_ID = 55339
     const app = new App({ id: APP_ID, privateKey: PRIVATE_KEY })
@@ -29,6 +30,16 @@ async function run() {
       installationId
     });
     console.log(`Installation Access  token for ${context.issue.repo} repo and owner ${context.issue.owner} is ${installationAccessToken}`)
+
+    await request("POST /repos/:owner/:repo/issues", {
+      owner: context.issue.owner,
+      repo: context.issue.repo,
+      headers: {
+        authorization: `token ${installationAccessToken}`,
+        accept: "application/vnd.github.machine-man-preview+json"
+      },
+      title: "My installation’s first issue wohooooo!!"
+    });
 
     const committers = (await getCommitters()) as CommittersDetails[]
     await prComment(committers)

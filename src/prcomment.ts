@@ -1,9 +1,9 @@
-import octokit from './octokit'
+//import octokit from './octokit'
 import * as core from '@actions/core'
 import { context } from '@actions/github'
 import { CommittersDetails } from './interface'
 
-async function getComment() {
+async function getComment(octokit) {
   try {
     const response = await octokit.issues.listComments({
       owner: context.repo.owner,
@@ -43,8 +43,8 @@ function commentContent(committers: CommittersDetails[]) {
   return content
 }
 
-export default async function prComment(committers: CommittersDetails[]) {
-  const prComment = await getComment()
+export default async function prComment(committers: CommittersDetails[], octokit) {
+  const prComment = await getComment(octokit)
   if (!prComment) {
     return octokit.issues.createComment({
       owner: context.repo.owner,

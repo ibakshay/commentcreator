@@ -4,6 +4,7 @@ import { context } from '@actions/github'
 const pat = core.getInput('pat')
 import { App } from "@octokit/app"
 const { request } = require("@octokit/request");
+import { installationAccessToken } from "./main"
 
 
 export async function setInstallationAccessToken() {
@@ -30,6 +31,6 @@ export async function setInstallationAccessToken() {
 }
 //octokit = new GitHub(installationAccessToken as string)
 
-const octokit = new GitHub(process.env.GITHUB_TOKEN as string)
+const octokit = new GitHub(installationAccessToken as string)
 
 export default octokit

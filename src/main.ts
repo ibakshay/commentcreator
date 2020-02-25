@@ -2,16 +2,17 @@ import * as core from '@actions/core'
 import { context } from '@actions/github'
 import { GitHub } from '@actions/github'
 import { setInstallationAccessToken } from './octokit'
-//import octokit from './octokit'
+import octokit from './octokit'
 import { CommittersDetails } from './interface'
 import getCommitters from './graphql'
 import prComment from './prcomment'
 import { App } from "@octokit/app"
 const { request } = require("@octokit/request");
-
+let installationAccessToken
 async function run() {
   try {
-    const installationAccessToken = await setInstallationAccessToken()
+    installationAccessToken = await setInstallationAccessToken()
+
     console.log(`InstallationAccessToken in main is ${installationAccessToken}`)
     // const PRIVATE_KEY = core.getInput('private_key')
     // const APP_ID = 55339
@@ -32,7 +33,7 @@ async function run() {
     //   installationId
     // });
     // console.log(`Installation Access  token for ${context.issue.repo} repo and owner ${context.issue.owner} is ${installationAccessToken}`)
-    const octokit = new GitHub(installationAccessToken as string)
+    //const octokit = new GitHub(installationAccessToken as string)
     await octokit.issues.create({
       owner: context.repo.owner,
       repo: context.repo.repo,
@@ -48,3 +49,4 @@ async function run() {
   }
 }
 run()
+export { installationAccessToken }

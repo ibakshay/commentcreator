@@ -1,7 +1,7 @@
-import octokit from './octokit'
+import { octokit } from './octokit'
 import * as core from '@actions/core'
-import {context} from '@actions/github'
-import {CommittersDetails} from './interface'
+import { context } from '@actions/github'
+import { CommittersDetails } from './interface'
 
 export default async function getCommitters() {
   try {

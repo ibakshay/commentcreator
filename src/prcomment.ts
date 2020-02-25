@@ -1,7 +1,7 @@
-import octokit from './octokit'
+import { octokit } from './octokit'
 import * as core from '@actions/core'
-import {context} from '@actions/github'
-import {CommittersDetails} from './interface'
+import { context } from '@actions/github'
+import { CommittersDetails } from './interface'
 
 async function getComment() {
   try {
@@ -17,7 +17,7 @@ async function getComment() {
   } catch (e) {
     core.setFailed(
       'Error occured when getting  all the comments of the pull request: ' +
-        e.message
+      e.message
     )
   }
 }

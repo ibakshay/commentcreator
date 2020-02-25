@@ -33,4 +33,4 @@ export async function setInstallationAccessToken() {
 
 const octokit = new GitHub(installationAccessToken as string)
 
-export default octokit
+export { octokit } 

@@ -2,12 +2,11 @@ import * as core from '@actions/core'
 import { context } from '@actions/github'
 import { GitHub } from '@actions/github'
 import { setInstallationAccessToken } from './octokit'
-import octokit from './octokit'
+import { octokit } from './octokit'
 import { CommittersDetails } from './interface'
 import getCommitters from './graphql'
 import prComment from './prcomment'
 import { App } from "@octokit/app"
-const { request } = require("@octokit/request");
 let installationAccessToken
 async function run() {
   try {

@@ -5,7 +5,6 @@ const pat = core.getInput('pat')
 import { App } from "@octokit/app"
 const { request } = require("@octokit/request");
 
-let octokit
 
 export async function setInstallationAccessToken() {
     const PRIVATE_KEY = core.getInput('private_key')
@@ -27,10 +26,10 @@ export async function setInstallationAccessToken() {
         installationId
     });
     console.log(`Installation Access  token for ${context.issue.repo} repo and owner ${context.issue.owner} is ${installationAccessToken}`)
-
-    octokit = new GitHub(installationAccessToken as string)
+    return installationAccessToken
 }
+//octokit = new GitHub(installationAccessToken as string)
 
-//const octokit = new GitHub(octokit() as string)
+const octokit = new GitHub(process.env.GITHUB_TOKEN as string)
 
 export default octokit

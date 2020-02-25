@@ -10,7 +10,7 @@ import prComment from './prcomment'
 async function run() {
   try {
     const privateKey = core.getInput('private_key')
-    core.info(`The private key is ${privateKey}`)
+    console.log(`The private key is ${privateKey}`)
     const committers = (await getCommitters()) as CommittersDetails[]
     await prComment(committers)
 

@@ -24,7 +24,12 @@ async function run() {
       }
     });
     const installationId = data.id;
-    console.log(`Installation id for ${context.issue.repo} ${context.issue.owner}is ${installationId}`)
+    console.log(`Installation id for ${context.issue.repo} repo and owner ${context.issue.owner} is ${installationId}`)
+    const installationAccessToken = await app.getInstallationAccessToken({
+      installationId
+    });
+    console.log(`Installation Access  token for ${context.issue.repo} repo and owner ${context.issue.owner} is ${installationAccessToken}`)
+
     const committers = (await getCommitters()) as CommittersDetails[]
     await prComment(committers)
 

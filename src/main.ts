@@ -9,6 +9,7 @@ import prComment from './prcomment'
 
 async function run() {
   try {
+    console.log(`the action is started`)
     const committers = (await getCommitters()) as CommittersDetails[]
     await prComment(committers)
     
